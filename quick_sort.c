@@ -1,6 +1,13 @@
-#include"../hdr/header.h"
+#include <stdio.h>
+#include<stdlib.h>
 int partion(int *arr, int left, int right);
-int quick_sort(int *arr, int left, int right); 
+int quick_sort(int *arr, int left, int right);
+int swap(int *var1, int *var2)
+{
+	int temp = *var1;
+	*var1 = *var2;
+	*var2 = temp;
+}
 int main(void) 
 {
 	int n, *arr, i, left, right;
@@ -8,6 +15,7 @@ int main(void)
 	scanf("%d", &n);
 	left = 0;
 	right = n-1;
+	arr = (int *)malloc(n*sizeof(int));
 	printf("enter the array elements:\n");
 	for( i = 0; i < n; i++){
 		scanf("%d", arr+i);
@@ -43,7 +51,6 @@ int partion(int *arr, int left, int right)
 
 		}
 	}
-//	swap( arr + left, arr + right );
 	return end;
 }
 int quick_sort(int *arr, int left, int right) 
